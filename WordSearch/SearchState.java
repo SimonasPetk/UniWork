@@ -3,6 +3,8 @@
 *	abstract class
 *   must implement goalP, getSuccessors, sameState, toString
 *   variable cost version - has localCost variable
+*   A* version - has estRemCost
+*   changes indicated by //A*-
 *   2013 version
 */
 
@@ -12,6 +14,8 @@ public abstract class SearchState {
 
   // change from search2 - need to give local cost
   protected int localCost;
+  // A*
+  protected int estRemCost;
 
   /**
   * accessor for local cost
@@ -20,6 +24,12 @@ public abstract class SearchState {
   public int getLocalCost(){
     return localCost;
   }
+
+  // A*
+  public int getestRemCost(){
+    return estRemCost;
+  }
+
 
   // must implement goalP, getSuccessors, sameState, toString
 

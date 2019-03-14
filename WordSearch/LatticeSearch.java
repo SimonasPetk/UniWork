@@ -14,16 +14,19 @@ public class LatticeSearch extends Search {
   private LM bigram; // bigram language model
 
   public WordLattice getLattice(){
+
     return lattice;
   }
   
   public LM getBigram(){
+
     return bigram;
   }
 
   public LatticeSearch(WordLattice l, LM b){
-    lattice=l;
-    bigram=b;
+
+    lattice = l;
+    bigram = b;
   }
 }
 
