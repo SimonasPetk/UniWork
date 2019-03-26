@@ -62,14 +62,14 @@ public class RunLatticeSearchTest {
     // Test for LatticeState for goalP and sameState methods
 
     LatticeState testState1 = new LatticeState(new WordH("test",0,latt.getEndTime(),30),0);
-    LatticeState testState2 = new LatticeState(new WordH("test2",0,0,20),0);
+    LatticeState testState2 = new LatticeState(new WordH("test2",0,0,20),10);
     LatticeState testState3 = new LatticeState(new WordH("*start*",0,0,0),0);
 
     System.out.println("Test for Lattice State: \nLatticeState word should get \"test 0 36 30\": " + testState1.getWord());
 
-    System.out.println("LatticeState check for goal should return \"true\": "
+    System.out.println("LatticeState check if testState1 is a goal, should return \"true\": "
                         + testState1.goalP(lsearch));
-    System.out.println("LatticeState check for goal should return \"false\": "
+    System.out.println("LatticeState check if testState2 is a goal, should return \"false\": "
                         + testState2.goalP(lsearch)); 
 
     System.out.println("LatticeState check if testState2 and testState3" +
@@ -81,6 +81,9 @@ public class RunLatticeSearchTest {
     System.out.println("LatticeState check if testState1 and testState1" +
                        " have the same state should return \"true\": "
                         + testState1.sameState(testState1));
+
+    System.out.println("\ntoString method test should get \"Word: test2 0 0 20\": \n"
+                        + testState2.toString());
   }
 }
 

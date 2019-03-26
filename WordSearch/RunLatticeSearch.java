@@ -3,7 +3,7 @@
    *
    * @author <a href="mailto: "Phil Green</a>
    * 2019 version
-   *
+   * modified by: Simonas Petkevicius
    * run a word lattice search
    *
  */
@@ -25,7 +25,7 @@ public class RunLatticeSearch {
 
     // download the word lattice data from file
 
-    latt.latticeFromFile("latt1.txt");
+    latt.latticeFromFile("latt0.txt");
 
     // exaample vocabulary for Language Model
 
@@ -44,14 +44,14 @@ public class RunLatticeSearch {
                      {100, 90, 80, 60, 80, 40, 90, 80,500, 90},
                      { 20,100, 60,100, 70, 60, 80, 40, 90,500}};
 
-/// COM1005 Word Lattice Search Assignment
-// TV/Radio control vocabulary
-// for commands like "TV on", Radio volume up", "TV record channel eight"
+    /// COM1005 Word Lattice Search Assignment
+    // TV/Radio control vocabulary
+    // for commands like "TV on", Radio volume up", "TV record channel eight"
 
     String [] tVocab= {"TV","radio","channel","volume","up","down","on","off","record","playback",
                        "one","two","three","four","five","six","seven","eight","nine"};
 
-// Language Model costMatrix for control vocab
+    // Language Model costMatrix for control vocab
 
     int [][] tCosts ={
      {500,  200,   20,   25,  100,   80,   30,   30,   70,   90,  150,  140,  150,  145,   55,  140,  160,  110,  120},
@@ -74,8 +74,11 @@ public class RunLatticeSearch {
      {130,  130,   80,  140,  150,   80,  180,  170,  100,  110,  110,  110,  110,  110,  110,  110,  110,  110,  110},
      {130,  130,   80,  140,  150,   80,  180,  170,  100,  110,  110,  110,  110,  110,  110,  110,  110,  110,  110}};
 
-    // create a bigram language model
+    // create a bigram language model for 1 lattice
     LM bg = new LM(vocab, costs);
+
+    // create a bigram language model for TVLM lattices
+    LM tBg = new LM(tVocab, tCosts);
 
     // once you've written LatticeSearch you can create an instance like so
     // a LatticeSearch is defined by the lattice and LM
@@ -95,8 +98,6 @@ public class RunLatticeSearch {
     // & print the results
     screen.println(res_bb);
   }
-
-
 }
 
 
